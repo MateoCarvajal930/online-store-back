@@ -11,4 +11,7 @@ public interface IProductoService {
     Producto findOne(Long id);
     void delete(Long id);
     List<Producto> findByName(String name);
+    List<Producto> findByMarca(String marca);
+    List<Producto> findByCategoria(String categoria);
+    List<Producto> findByTipo(String tipo);
 }

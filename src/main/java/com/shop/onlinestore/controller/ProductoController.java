@@ -1,5 +1,4 @@
 package com.shop.onlinestore.controller;
-
 import com.shop.onlinestore.dto.ProductoDTO;
 import com.shop.onlinestore.dto.ProductoTransformer;
 import com.shop.onlinestore.model.Producto;
@@ -19,7 +18,6 @@ public class ProductoController {
 
 
     private final IProductoService productoService;
-
     private final IProductoRepository productoRepo;
 
     public ProductoController(IProductoService service, IProductoRepository productoRepo) {
@@ -48,6 +46,25 @@ public class ProductoController {
     @GetMapping("/list-by-name/{name}")
     public ResponseEntity<List<Producto>> obtenerProductosPorNombre(@PathVariable String name) {
         List<Producto> productosList = productoService.findByName(name);
+        return ResponseEntity.ok(productosList);
+
+    }
+
+    @GetMapping("/list-by-marca/{marca}")
+    public ResponseEntity<List<Producto>> obtenerProductosPorMarca(@PathVariable String marca) {
+        List<Producto> productosList = productoService.findByMarca(marca);
+        return ResponseEntity.ok(productosList);
+    }
+
+    @GetMapping("/list-by-categoria/{categoria}")
+    public ResponseEntity<List<Producto>> obtenerProductosPorCategoria(@PathVariable String categoria) {
+        List<Producto> productosList = productoService.findByCategoria(categoria);
+        return ResponseEntity.ok(productosList);
+    }
+
+    @GetMapping("/list-by-tipo/{tipo}")
+    public ResponseEntity<List<Producto>> obtenerProductosPorTipo(@PathVariable String tipo) {
+        List<Producto> productosList = productoService.findByTipo(tipo);
         return ResponseEntity.ok(productosList);
     }
 

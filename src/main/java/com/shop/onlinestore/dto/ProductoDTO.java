@@ -11,4 +11,8 @@ public class ProductoDTO {
     private String marca;
     private String categoria;
     private String precio;
+    private String descripcion;
+    private String tipoProducto;
+
+
 }

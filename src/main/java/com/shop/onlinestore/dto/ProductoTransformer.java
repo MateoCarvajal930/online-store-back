@@ -12,15 +12,20 @@ public class ProductoTransformer {
         producto.setMarca(productoDTO.getMarca());
         producto.setPrecio(Float.parseFloat(productoDTO.getPrecio()));
         producto.setCategoria(productoDTO.getCategoria());
+        producto.setDescripcion(productoDTO.getDescripcion());
+        producto.setTipoProducto(productoDTO.getTipoProducto());
         return producto;
     }
 
     public ProductoDTO toDTO(Producto producto) {
-        ProductoDTO productoDTO = new ProductoDTO(producto.getId(),"Querido" +  producto.getNombre(),
+        ProductoDTO productoDTO = new ProductoDTO(
+                producto.getId(),
+                producto.getNombre(),
                 producto.getMarca(),
+                String.format("%.2f", producto.getPrecio()),
                 producto.getCategoria(),
-                String.format("%.2f", producto.getPrecio()));
+                producto.getDescripcion(),
+                producto.getTipoProducto());
         return productoDTO;
-
     }
 }

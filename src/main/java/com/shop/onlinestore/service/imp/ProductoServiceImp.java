@@ -1,10 +1,8 @@
 package com.shop.onlinestore.service.imp;
-
 import com.shop.onlinestore.exceptions.ResourceNotFoundException;
 import com.shop.onlinestore.model.Producto;
 import com.shop.onlinestore.repository.IProductoRepository;
 import com.shop.onlinestore.service.IProductoService;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -55,4 +53,18 @@ public class ProductoServiceImp implements IProductoService {
         return productoRepo.findByNombreContains(name);
     }
 
+    @Override
+    public List<Producto> findByMarca(String marca) {
+        return productoRepo.findByMarcaContains(marca);
+    }
+
+    @Override
+    public List<Producto> findByCategoria(String categoria) {
+        return productoRepo.findByCategoriaContains(categoria);
+    }
+
+    @Override
+        public List<Producto> findByTipo(String tipo) {
+        return productoRepo.findByTipoContains(tipo);
+    }
 }
